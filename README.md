@@ -1,6 +1,7 @@
 # Terroir Model
 Terroir Model: agent-based model that represents nutrient cycling within agro-sylvo-pastoral landscapes in West Africa 
 
+![grid](https://www.comses.net/media/images/sharedlibrary03b8222c-c4d2-4b16.width-300.png)
 
 ### Programming Language
 [GAMA](https://gama-platform.github.io/) (1.8) 
