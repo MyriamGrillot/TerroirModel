@@ -1,0 +1,9 @@
+Household_type;Specie;TLU;sd_TLU;Ratio_freeGrazing;;
+crop subsistent;bovine;0.9;0.0;0.95;;2.3
+crop subsistent;smallRuminant;1.3;0.0;1.0;;1.3
+livestock subsistent;bovine;11.2;0.0;1.0;;9.7
+livestock subsistent;smallRuminant;6.0;0.0;1.0;;2.3
+crop market;bovine;;;;;
+crop market;smallRuminant;;;;;
+livestock market;bovine;;;;;
+livestock market;smallRuminant;;;;;

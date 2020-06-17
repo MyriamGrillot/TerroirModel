@@ -1,0 +1,12 @@
+total cells: ,2500
+land unit ,number of cells,ratio,total area
+home fields,814,0.3256,203.5
+bush fields,1494,0.5976,373.5
+rangelands,164,0.0656,41.0
+housing areas,28,0.0112,7.0
+land unit,tree density,area,nb trees
+housing areas,5,7.0,35
+home fields,6,203.5,1221
+bush fields,10,373.5,3735
+rangelands,15,41.0,615
+total trees: ,5606

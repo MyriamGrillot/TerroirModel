@@ -1,0 +1,10 @@
+;Species;bovine;bovine;smallRuminant;smallRuminant;equine
+;Management;grazing animal;fattened animal;grazing animal;fattened animal;draught animal
+livestock market;normal;4.2|0;0.5|0.5;7.5|0;1.0|1.0;0.5|0.5
+livestock market;increase;4.2|0;1.0|1.0;7.5|0;1.0|1.0;0.5|0.5
+crop subsistent;normal;4.2|0;1.0|0.5;7.5|0;1.0|1.0;1.0|0.5
+crop subsistent;increase;4.2|0;1.0|1.0;7.5|0;1.0|1.0;2.0|2.0
+crop market;normal;4.2|0;1.0|1.0;7.5|0;1.0|1.0;1.0|1.0
+crop market;increase;4.2|0;1.0|1.0;7.5|0;1.0|1.0;1.0|1.0
+livestock subsistent;normal;4.2|0;1.0|1.0;7.5|0;1.0|1.0;2.0|0.0
+livestock subsistent;increase;4.2|0;1.0|1.0;7.5|0;1.0|1.0;2.0|2.0
