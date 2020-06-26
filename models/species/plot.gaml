@@ -400,7 +400,8 @@ species agriculturalPlot parent:plot {
 	float destockPlot (string biomassType, float gathered_kgDM) {
 		// PLANT PRODUCTS
 		if biomassType in PLANTPRODUCTS {
-			float Ncontent <- decrementProductStock(biomassType, gathered_kgDM);
+			do decrementProductStock(biomassType, gathered_kgDM);
+			float Ncontent <- BIOMASS_kgNperkgDM[biomassType];
 			do incrementOutput_apparent(gathered_kgDM * Ncontent);
 			return Ncontent;
 		}
@@ -465,12 +466,12 @@ species agriculturalPlot parent:plot {
 		return totalNcontent;
 	}
 		
-	float decrementProductStock(string biomass, float decrement_kgDM) {
+	action decrementProductStock(string biomass, float decrement_kgDM) {
 		plantStocks_kgDM[biomass] <- (plantStocks_kgDM[biomass] - decrement_kgDM);
 		if plantStocks_kgDM[biomass] = 0 {
 			plantStocks_kgDM[] >- biomass;
 		}
-		return BIOMASS_kgNperkgDM[biomass];
+//		return BIOMASS_kgNperkgDM[biomass];
 	}
 		
 	//* Fertilization
