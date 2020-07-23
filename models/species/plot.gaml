@@ -732,11 +732,11 @@ species agriculturalPlot parent:plot {
 		}
 	}
 		
-	action naturalVegetationScenescence {
+	action naturalVegetationSenescence {
 		float grassQuantity <- plantStocks_kgDM[GRASS];
-		float quantity <- grassQuantity * dailyScenescence;
+		float quantity <- grassQuantity * dailySenescence;
 		
-		if status.key > (cycle + maxLengthScenescence_days) {
+		if status.key > (cycle + maxLengthSenescence_days) {
 			quantity <- grassQuantity;
 		}
 		

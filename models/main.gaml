@@ -369,7 +369,7 @@ global {
 			
 		// natural vegetation growth
 		ask agriculturalPlot where (each.landUse in NATURAL_VEG and each.status.value = MATURE) {
-			do naturalVegetationScenescence;
+			do naturalVegetationSenescence;
 		}
 		
 		// crop sowing

@@ -138,11 +138,11 @@ global {
 	float minPrunedQuantity_kgDM <- 10.0;
 	float ratioWoodPruned_overLeaves_kgDM_ptree <- 0.10;				// harvestable wood 
 
-	float dailyScenescence <- 0.01;										// %scenescence per day		
-	float maxLengthScenescence_days <- 175#days;
+	float dailySenescence <- 0.01;										// %senescence per day (grass)
+	float maxLengthSenescence_days <- 175#days;
 
 //////	// household	/////
-		// needs&consumption //kg MS required/day/human unit
+	// needs&consumption //kg MS required/day/human unit
 	map<string, float> FOODNEEDS_PINHABITANTS_kgDM_PDAY <- ([
 								MILLET_COB::(0.4 / GRAIN_kgDM_TOTAL_kgDM[MILLET_COB]), // assuming the ratio kgDM/kgDM is similar
 								GROUNDNUT_UNHUSKED::(0.02 / GRAIN_kgDM_TOTAL_kgDM[GROUNDNUT_UNHUSKED]), 

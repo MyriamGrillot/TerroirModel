@@ -57,7 +57,6 @@ global {
 	string SOWN const:true <- "sown";
 	string GROWING const:true <- "on growth";
 	string MATURE const:true <- "mature";
-	string SCENESCENT const:true <- "scenescent";
 	string PRODUCT_HARVESTED const:true <- "product harvested";
 	list<string> PLOT_STATUSES const:true <- [FREE, SOWN, GROWING, MATURE, PRODUCT_HARVESTED]; 
 
