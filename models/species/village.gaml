@@ -87,12 +87,7 @@ global {
 		}
 		
 		// UPDATE GLOBAL VARIABLES
-		action updateGlobalVariables {			
-			loop i over: treeSenescenceRatios.keys {
-				int stepi <- i + cycle_per_year;
-				add stepi::treeSenescenceRatios[i] to: treeSenescenceRatios;
-				treeSenescenceRatios[] >- i;
-			}
+		action updateGlobalVariables {
 			do updateDependentGlobalVariables;
 		}
 	

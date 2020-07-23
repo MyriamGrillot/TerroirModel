@@ -189,11 +189,6 @@ global {
 		if (!empty (plotHF)) {
 			write "init: !empty (lhh) " + length(lhh);
 		}
-	
-		matrix matTreeSenescence <- matrix(initTreeSenescence);
-		loop i from: 0 to: matTreeSenescence.columns - 1 {
-			add int(matTreeSenescence[i,0])::float(matTreeSenescence[i,1]) to:treeSenescenceRatios;
-		}
 				
 		// Houshold inits PLOT
 		ask household {

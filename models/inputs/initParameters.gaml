@@ -75,8 +75,6 @@ global {
 	file initLivestockConcentratedFeedNeeds <- csv_file("../inputs/InitLivestockConcentratedFeedNeeds_avVillage" + ".csv", false);
 	
 		//init PLOT	
-	file initTreeSenescence <- csv_file("../inputs/Senescence_FAlbida.csv", true);
-	
 	////////// init livestock ///
 	matrix matinitLivestockForageNeeds;
 	matrix matinitLivestockConcentratedFeedNeeds;

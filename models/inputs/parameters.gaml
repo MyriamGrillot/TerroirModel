@@ -127,7 +127,7 @@ global {
 	map<string, pair<float, float>> freshGrassMeanYield_kgDMha <- ([HOMEFIELD::(100.0::25.0), BUSHFIELD::(475.0::68.0)]);		// kg DM/ha
 		
 		//* trees
-	map<int, float> treeSenescenceRatios;
+	//map<int, float> treeSenescenceRatios;
 	int length_faidherbiaGrowth_days;
 	int durationFederbiaMaintainLeaves_days <- 60;						// days
 	

@@ -471,7 +471,6 @@ species agriculturalPlot parent:plot {
 		if plantStocks_kgDM[biomass] = 0 {
 			plantStocks_kgDM[] >- biomass;
 		}
-//		return BIOMASS_kgNperkgDM[biomass];
 	}
 		
 	//* Fertilization
