@@ -1,6 +1,6 @@
 /**
- *  2020 06 01
- *  GAMA version: 1.8
+ *  2022 08 03
+ *  GAMA version: 1.8.2-RC2
  * 
  * 	main
  *  Author: Myriam Grillot

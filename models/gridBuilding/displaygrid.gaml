@@ -33,7 +33,7 @@ global {
 		
 		file dwellingFile <- file("../includes/cellsDwelling_" + shape_name + ".shp");
 		file notDwellingFile <- file("../includes/cellsNotDwelling_"+ shape_name + ".shp");
-		shape <- envelope("../includes/cells_"+ shape_name +".shp");
+		geometry shape <- envelope(("../includes/cells_"+ shape_name) +".shp");
 		
 		create housingPlot from: dwellingFile with: [
 			myLandUnit::string(read("Type")),
@@ -56,14 +56,14 @@ species plot {
 species agriculturalPlot parent:plot{
 	// ASPECT
 	aspect land_unit {
-		draw shape color: TYPE_COLOR[myLandUnit] border:#black empty:false;
+		draw shape color: TYPE_COLOR[myLandUnit] border:#black wireframe:false;
 	}
 }
 
 species housingPlot parent:plot{
 	// ASPECT
 	aspect land_unit {
-		draw shape color: TYPE_COLOR[myLandUnit] border:#black empty:false;
+		draw shape color: TYPE_COLOR[myLandUnit] border:#black wireframe:false;
 	}
 }
 

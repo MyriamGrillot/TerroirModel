@@ -16,7 +16,7 @@ global {
 species stock {
 	plot myLocation;
 	household myOwner;
-	string biomass among:HH_STORED_GOODS;
+	string biomass; //among:HH_STORED_GOODS
 	
 	pair<float, float> level_kgDM_Ncontent <- 0.0::0.0;
 	pair<float, float> surplus_kgDM_Ncontent <- 0.0::0.0;

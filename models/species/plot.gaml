@@ -22,7 +22,7 @@ species plot {
 		
 
 	// N available & fertilization	
-	pair<float> Navailable_ha_currentProd;		// updated only when yield is calculated (N available)
+	pair<float, float> Navailable_ha_currentProd;		// updated only when yield is calculated (N available)
 	float coef_Ferti_currentP;
 	
 		// trees
@@ -242,7 +242,7 @@ species plot {
 	}
 			
 	aspect balanceAspect {
-		draw shape color:#white border:TYPE_COLOR[myLandUnit] empty:false;
+		draw shape color:#white border:TYPE_COLOR[myLandUnit] wireframe:false;
 	}
 }
 
@@ -254,8 +254,8 @@ species agriculturalPlot parent:plot {
 		// cropping plan _ land use
 	list<string> croppingPlan <- [] ;						// plot's cropping plan
 	int planYear;  											// year the cropping plan started (1 = this is the first year, 2 = the second..)
-	string landUse among:LAND_USES <- INIT_LAND_USE[myLandUnit];
-	string future_landUse among:LAND_USES <- INIT_LAND_USE[myLandUnit];
+	string landUse <- INIT_LAND_USE[myLandUnit];
+	string future_landUse <- INIT_LAND_USE[myLandUnit];
 	map<string, float> yieldHaPerCrop_kgDM <- ([]);
 	map<string, float> total_production_current_year_kgDM_per_product <- ([]);
 	pair<string, map<string, float>>  total_production_previous_year_kgDM_per_product;
@@ -272,7 +272,7 @@ species agriculturalPlot parent:plot {
 		// stock
 	float NStock_kgN <- 0.0;								// in kgN
 	map<string, float> plantStocks_kgDM <- ([]);
-	map<int, pair<float>> dung_kgDM_Ncontent <- ([]);
+	map<int, pair<float, float>> dung_kgDM_Ncontent <- ([]);
 		
 		// related to livestock
 	list<livestock_herd> paddockedLivestock <- [];
@@ -356,7 +356,7 @@ species agriculturalPlot parent:plot {
 		int stillHarvestableStep <- cycle - length_dungIsHarvestable_day;
 		loop i over:dung_kgDM_Ncontent.keys { 
 			if i < stillHarvestableStep {
-				float value_kgDM <- float(dung_kgDM_Ncontent[i].key);
+				float value_kgDM <- dung_kgDM_Ncontent[i].key;
 				float Ncontent <- dung_kgDM_Ncontent[i].value;
 				float value_kgN <- value_kgDM * Ncontent;
 				do isFertilized_inN(DUNG, value_kgN);
@@ -429,7 +429,7 @@ species agriculturalPlot parent:plot {
 		float totalNcontent;
 		float totalGathered_kgDM;		
 		loop theDay over: dung_kgDM_Ncontent.keys {
-			float stock_kgDM <- float(dung_kgDM_Ncontent[theDay].key);		
+			float stock_kgDM <- dung_kgDM_Ncontent[theDay].key;		
 			float stock_Ncontent <- dung_kgDM_Ncontent[theDay].value;
 			float val <- min([stock_kgDM, decrement_kgDM]);
 			
@@ -480,7 +480,7 @@ species agriculturalPlot parent:plot {
 			if fertiType = DUNG {
 				float VN;
 				if dung_kgDM_Ncontent[cycle] != nil {
-					float VDM <-  float(dung_kgDM_Ncontent[cycle].key);
+					float VDM <-  dung_kgDM_Ncontent[cycle].key;
 					float totalVDM <- VDM + application_kgDM;
 
 					VN <-  dung_kgDM_Ncontent[cycle].value;
@@ -533,7 +533,7 @@ species agriculturalPlot parent:plot {
 			}
 				
 		} else {
-			add map([fertiType::Napplication]) at: 1 to:fertilizerInput_kgN;
+			add ([fertiType::Napplication]) at: 1 to:fertilizerInput_kgN;
 		} 
 	}
 	
@@ -578,7 +578,7 @@ species agriculturalPlot parent:plot {
 		}		
 	}
 	
-	action tree_N_fixation {
+	action tree_N_fixation { // TODO test
 //		int nbT <- nbTree();
 //		float flow_kgN <- tree_fixation_kgN_tree_year * nbT;
 //		NStock_kgN <- NStock_kgN + flow_kgN;
@@ -765,23 +765,23 @@ species agriculturalPlot parent:plot {
 	
 	// ASPECT
 	aspect land_unit {	
-		draw shape color: TYPE_COLOR[myLandUnit] border:#black empty:false;
+		draw shape color: TYPE_COLOR[myLandUnit] border:#black wireframe:false;
 	}
 	
 	aspect land_use {
-		draw shape color: LU_COLOR[landUse] border:TYPE_COLOR[myLandUnit] empty:false;
+		draw shape color: LU_COLOR[landUse] border:TYPE_COLOR[myLandUnit] wireframe:false;
 	}
 	
 	aspect owner {	
 		if (myOwner != nil) {
-			draw shape color: HH_TYPE_COLOR[myOwner.myType] border:TYPE_COLOR[myLandUnit] empty:false;
+			draw shape color: HH_TYPE_COLOR[myOwner.myType] border:TYPE_COLOR[myLandUnit] wireframe:false;
 		} else {
-			draw shape color: #white border: TYPE_COLOR[myLandUnit] empty:false;
+			draw shape color: #white border: TYPE_COLOR[myLandUnit] wireframe:false;
 		}
 	}
 	
 	aspect balanceAspect {
-		draw shape color:balance_apparent_color border:TYPE_COLOR[myLandUnit] empty:false;
+		draw shape color:balance_apparent_color border:TYPE_COLOR[myLandUnit] wireframe:false;
 	}
 }
 
@@ -792,6 +792,6 @@ species housingPlot parent:plot{
 
 	// ASPECT
 	aspect land_unit {
-		draw shape color: TYPE_COLOR[myLandUnit] border:#black empty:false;
+		draw shape color: TYPE_COLOR[myLandUnit] border:#black wireframe:false;
 	}
 }

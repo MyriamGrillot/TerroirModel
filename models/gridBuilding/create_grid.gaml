@@ -103,7 +103,7 @@ global {
 		}
 
 		cell_RGL <- total_cells - cell_HF - cell_BF - cell_DW;
-		INIT_NB <- map([HOMEFIELD::cell_HF, BUSHFIELD::cell_BF, RANGELAND ::cell_RGL, DWELLING::cell_DW]);
+		INIT_NB <- ([HOMEFIELD::cell_HF, BUSHFIELD::cell_BF, RANGELAND ::cell_RGL, DWELLING::cell_DW]);
 		
 		save ["total cells: ", total_cells] to:info type:csv rewrite:true;
 		save ["land unit ", "number of cells", "ratio", "total area"] to:info type:csv rewrite:false;
@@ -145,9 +145,9 @@ global {
 			save ["total trees: ", sum(cell accumulate(each.nb_trees))] to:info type:csv rewrite:false;
 		}
 		
-		save cell to: cellFile with: [name::"Name", type::"Type", area::"Area", nb_trees::"Trees"] type:shp rewrite:true;
-		save cell where (each.type = DWELLING) to: cellFile_dwelling with: [name::"Name", type::"Type", area::"Area", nb_trees::"Trees"] type:shp rewrite:true;
-		save cell where (each.type != DWELLING) to: cellFile_notDwelling with: [name::"Name", type::"Type", area::"Area", nb_trees::"Trees"] type:shp rewrite:true;
+		save cell to: cellFile attributes: ["Name"::name, "Type"::type, "Area"::area, "Trees"::nb_trees] type:shp rewrite:true;
+		save cell where (each.type = DWELLING) to: cellFile_dwelling attributes: ["Name"::name, "Type"::type, "Area"::area, "Trees"::nb_trees] type:shp rewrite:true;
+		save cell where (each.type != DWELLING) to: cellFile_notDwelling attributes: ["Name"::name, "Type"::type, "Area"::area, "Trees"::nb_trees] type:shp rewrite:true;
 	}
 }
 

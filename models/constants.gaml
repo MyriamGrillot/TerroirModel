@@ -152,7 +152,7 @@ global {
 	list<string> PLANTPRODUCTS const:true <- [MILLET_COB, STRAW, GROUNDNUT_UNHUSKED, HAY, GRASS, FRESH_GRASS];
 		// products and coproducts
 	map<string,list<string>> LANDUSE_PRODUCTS_COPRODUCTS_NAMES const:true <- ([MILLET::[MILLET_COB, STRAW], GROUNDNUT::[GROUNDNUT_UNHUSKED, HAY], FALLOW::[GRASS, nil], RGL_VEG::[GRASS, nil]]);
-	map<string> CROP_SEEDS_ORIGINS const:true <- ([MILLET::MILLET_COB, GROUNDNUT::GROUNDNUT_UNHUSKED]);
+	map<string, string> CROP_SEEDS_ORIGINS const:true <- ([MILLET::MILLET_COB, GROUNDNUT::GROUNDNUT_UNHUSKED]);
 	map<string, string> CROP_SEEDS const:true <- ([MILLET::MILLET_SEED, GROUNDNUT::GROUNDNUT_SEED]);
 	
 		// from raw product to products (grain) and by-products

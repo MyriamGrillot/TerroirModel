@@ -59,7 +59,7 @@ global {
 		// grid
 		file dwellingFile <- file("../includes/cellsDwelling_" + shape_name + ".shp");
 		file notDwellingFile <- file("../includes/cellsNotDwelling_"+ shape_name + ".shp");
-		shape <- envelope("../includes/cells_"+ shape_name +".shp");
+		geometry shape <- envelope(("../includes/cells_"+ shape_name) +".shp");
 		
 		// init files
 		file initHousehold <- csv_file("../inputs/InitHousehold_" + init_households + ".csv", false);
@@ -113,10 +113,10 @@ global {
 				
 		matrix matinitHousehold <- matrix(initHousehold);
 		loop ty over: HOUSEHOLD_TYPES {
-			list<string> theList <- (matinitHousehold) row_at 0;
-			loop i over: theList {
+			list<string> theList_HH <- (matinitHousehold) row_at 0;
+			loop i over: theList_HH {
 				if i = ty {
-					column <- theList index_of (i);
+					column <- theList_HH index_of (i);
 					break;
 				}
 			}

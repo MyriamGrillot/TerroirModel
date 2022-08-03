@@ -29,7 +29,7 @@ species household {
 	list<stock> myStocks <- [];
 	
 	// type-related caracteristics
-	string myType among:HOUSEHOLD_TYPES <- first(HOUSEHOLD_TYPES);
+	string myType <- first(HOUSEHOLD_TYPES);
 		
 	float inhabitants <- 1.0;
 	map<string, float> average_FAT_TLU;
@@ -1051,7 +1051,7 @@ species household {
 			
 			// second run if mineral left
 			if mineral_kgDM > 0 {
-				list<agriculturalPlot> targetList <- myAgriculturalPlots where (each.landUse = use);
+				targetList <- myAgriculturalPlots where (each.landUse = use);
 			
 				loop while: mineral_kgDM > 0 and !empty(targetList) {
 					list<agriculturalPlot> tl <- targetList where (use in each.yieldHaPerCrop_kgDM.keys);
@@ -1496,7 +1496,7 @@ species household {
 								if dungTarget != nil {
 									float dunggathered_Ncontent;
 									
-									list<float> theL <- dungTarget.dung_kgDM_Ncontent accumulate float(each.key);
+									list<float> theL <- dungTarget.dung_kgDM_Ncontent accumulate (each.key);
 									float dung_available_kgDM <- sum(theL);
 								
 									dunggathered_kgDM <- min([dungNeed_kgDM, dung_available_kgDM]);
@@ -1944,7 +1944,7 @@ species household {
 			
 			if target != nil { 			
 				ask target {
-					list<float> theL <- dung_kgDM_Ncontent accumulate float(each.key);
+					list<float> theL <- dung_kgDM_Ncontent accumulate (each.key);
 					available <- sum(theL);
 				} 
 			}

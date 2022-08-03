@@ -198,16 +198,16 @@ species saver {
 	
 	// save species
 	action savePlots_balance (int run) {
-		save agriculturalPlot to: string(getSHPFileName(fileImage_Nbalance_agplot, run)) type:"shp" with:[
-			myLandUnit::"landUnit", myOwner::"owner", area_ha::"areaHa",
-			input_kgNapparent::"inkgNapp", output_kgNapparent::"outkgNapp",
-			input_kgN_nonapparent:: "inkgN_nonap", output_kgN_nonapparent::"outkgN_nonap"
+		save agriculturalPlot to: string(getSHPFileName(fileImage_Nbalance_agplot, run)) type:"shp" attributes:[
+			"landUnit"::myLandUnit, "owner"::myOwner, "areaHa"::area_ha,
+			"inkgNapp"::input_kgNapparent, "outkgNapp"::output_kgNapparent,
+			"inkgN_nonap"::input_kgN_nonapparent, "outkgN_nonap"::output_kgN_nonapparent
 		];
 		
-		save housingPlot to: string(getSHPFileName(fileImage_Nbalance_harea, run)) type:"shp" with:[
-			myLandUnit::"landUnit",  area_ha::"areaHa",
-			input_kgNapparent::"inkgNapp", output_kgNapparent::"outkgNapp",
-			input_kgN_nonapparent:: "inkgN_nonap", output_kgN_nonapparent::"outkgN_nonap"
+		save housingPlot to: string(getSHPFileName(fileImage_Nbalance_harea, run)) type:"shp" attributes:[
+			"landUnit"::myLandUnit,  "areaHa"::area_ha,
+			"inkgNapp"::input_kgNapparent, "outkgNapp"::output_kgNapparent,
+			"inkgN_nonap"::input_kgN_nonapparent, "outkgN_nonap"::output_kgN_nonapparent
 		];
 	}
 	
@@ -237,9 +237,9 @@ species saver {
 			float vTLU; 
 			loop l over: deadLivestock_year.keys {			
 				list<string> ls <- deadLivestock_year[l];
-				list<float> lf <- deadLivestock_month_year[l];
-				vTLU <- lf[1];
-				save [year, month, myType, name, ls[0], ls[1], l, int(lf[0])] to:myfile type:csv header: false rewrite: false;
+				list<float> lf1 <- deadLivestock_month_year[l];
+				vTLU <- lf1[1];
+				save [year, month, myType, name, ls[0], ls[1], l, int(lf1[0])] to:myfile type:csv header: false rewrite: false;
 
 				 map<int, list<float>> m <- deadLivestock_NeedCoverage[l];
 				loop i over: m.keys {

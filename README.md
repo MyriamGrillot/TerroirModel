@@ -4,7 +4,7 @@ Terroir Model: agent-based model that represents nutrient cycling within agro-sy
 ![grid](https://www.comses.net/media/images/sharedlibrary03b8222c-c4d2-4b16.width-300.png)
 
 ### Programming Language
-[GAMA](https://gama-platform.github.io/) (1.8) 
+[GAMA](https://gama-platform.github.io/) (1.8.2-RC2) 
 
 ### Related publications
 * Grillot M., Guerrin F., Gaudou B., Masse D., Vayssières J., 2018. **Multi-level analysis of nutrient cycling within agro-sylvo-pastoral landscapes in West Africa using an agent-based model.** Environmental Modelling & Software 107, 267‑280. https://doi.org/10.1016/j.envsoft.2018.05.003
